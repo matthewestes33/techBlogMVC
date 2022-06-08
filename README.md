@@ -11,7 +11,7 @@ This application creates a CMS-style blog site that allows a user to publish art
 
 ## Installation
 
-This application requires installation of npm (incl. nodemon, dotenv, express, mysql2, sequelize, express-handlebars), MySQL, and Heroku. 
+This application requires installation of npm (incl. nodemon, bcrypt, dotenv, express, mysql2, sequelize, express-handlebars), MySQL, and Heroku. 
 
 A walkthrough video can be viewed here: GOOGLE DRIVE LINK
 
