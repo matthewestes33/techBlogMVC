@@ -1,5 +1,5 @@
 {
-    "name": "techBlogMVC",
+    "name": "techblogmvc",
     "version": "1.0.0",
     "description": "Model-View-Controller (MVC) Tech Blog",
     "main": "server.js",
@@ -23,6 +23,6 @@
         "express-session": "^1.17.1",
         "mysql2": "^2.1.0",
         "nodemon": "^2.0.4",
-        "sequelize": "^5.21.7"
+        "sequelize": "^6.3.5"
     }
 }
