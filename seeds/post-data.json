@@ -1,0 +1,8 @@
+[
+    {
+        "title": "First Blog Post",
+        "description": "I'm excited to discuss all things Model-View-Controller (MVC) in the coming months.",
+        "date_created": "06/13/22",
+        "user_id": 1
+    }
+]
