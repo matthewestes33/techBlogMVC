@@ -21,7 +21,11 @@ All elements of the project can be examined here: https://github.com/mattheweste
 
 Referenced documentation and tutorials:
 
+Hooks | Sequelize: https://sequelize.org/docs/v6/other-topics/hooks/
 
+Default Values | Sequelize: https://sequelize.org/docs/v6/core-concepts/model-basics/#default-values
+
+Timestamps | Sequelize: https://sequelize.org/docs/v6/core-concepts/model-basics/#timestamps
 
 Additional assistance:
 

@@ -5,6 +5,9 @@ const sequelize = require('../config/connection');
 class Post extends Model { }
 
 // defines Post table columns and organization
+//"WHEN I click on an existing blog post ... 
+//THEN I am presented with the post title, contents, post creator’s username, and date created for that post ..."
+
 Post.init(
     {
         id: {
@@ -17,7 +20,7 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-        description: {
+        post_text: {
             type: DataTypes.STRING,
             allowNull: false,
         },

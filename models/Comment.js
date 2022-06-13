@@ -5,6 +5,9 @@ const sequelize = require('../config/connection');
 class Comment extends Model { }
 
 //defines Comment table columns and organization
+//"WHEN I enter a comment and click on the submit button while signed in, THEN the comment is saved ...
+//and the post is updated to display the comment, the comment creator’s username, and the date created"
+
 Comment.init(
     {
         id: {
@@ -29,7 +32,7 @@ Comment.init(
                 key: 'id'
             }
         },
-        description: {
+        comment_text: {
             type: DataTypes.STRING,
             allowNull: false,
         },
@@ -43,7 +46,6 @@ Comment.init(
     },
     {
         sequelize,
-        timestamps: false,
         freezeTableName: true,
         underscored: true,
         modelName: 'comment',
