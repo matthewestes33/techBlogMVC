@@ -1,0 +1,128 @@
+const router = require('express').Router();
+const sequelize = require('../config/connection');
+const { Comment, Post, User } = require('../models');
+const withAuth = require('../utils/auth');
+
+router.get('/', async (req, res) => {
+    try {
+        const postData = await Post.findAll({
+            where: {
+                // use the ID from the session
+                user_id: req.session.user_id
+            },
+            attributes: [
+                'id',
+                'title',
+                'created_at',
+                'post_text'
+            ],
+            include: [
+                {
+                    model: Comment,
+                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                    include: {
+                        model: User,
+                        attributes: ['username']
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
+        })
+        const posts = postData.map(post => post.get({ plain: true }));
+        res.render('dashboard', {
+            posts,
+            loggedIn: true
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/edit/:id', withAuth, async (req, res) => {
+    try {
+        const editData = await Post.findByPk(req.params.id, {
+            where: {
+                id: req.params.id
+            },
+            attributes: [
+                'id',
+                'title',
+                'created_at',
+                'post_text'
+            ],
+            include: [
+                {
+                    model: Comment,
+                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                    include: {
+                        model: User,
+                        attributes: ['username']
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['username']
+                }
+            ]
+        });
+
+        if (!editData) {
+            res.status(404).json({ message: 'No post found with this id' });
+            return;
+        }
+
+        // serialize the data
+        const post = editData.get({ plain: true });
+        res.render('edit-post', {
+            post,
+            loggedIn: true
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+router.get('/create/', withAuth, async (req, res) => {
+    try {
+        const createData = await Post.findAll({
+            where: {
+                // use the ID from the session
+                user_id: req.session.user_id
+            },
+            attributes: [
+                'id',
+                'title',
+                'created_at',
+                'post_content'
+            ],
+            include: [
+                {
+                    model: Comment,
+                    attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                    include: {
+                        model: User,
+                        attributes: ['username', 'twitter', 'github']
+                    }
+                },
+                {
+                    model: User,
+                    attributes: ['username', 'twitter', 'github']
+                }
+            ]
+        })
+        // serialize data before passing to template
+        const posts = createData.map(post => post.get({ plain: true }));
+        res.render('create-post', {
+            posts,
+            loggedIn: true
+        });
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+module.exports = router;
