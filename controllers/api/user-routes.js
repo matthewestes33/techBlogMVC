@@ -5,11 +5,10 @@ const withAuth = require('../../utils/auth');
 // GET /api/users
 router.get('/', async (req, res) => {
     try {
-        //getData not called
         const getData = await User.findAll({
             attributes: { exclude: ['password'] },
         })
-        getData => res.json(getData)
+        res.json(getData)
     } catch (err) {
         res.status(500).json(err);
     }
