@@ -5,10 +5,9 @@ const User = require('./User');
 
 //associations (User can have many Posts and Comments, each Post and Comment belong to a User) 
 //associations (Post can have many Comments, each Comment belongs to a Post)
-
 User.hasMany(Post, {
     foreignKey: 'user_id',
-    //update the matching records from the child table when the rows in the parent table are updated
+    //onDelete CASCADE updates the matching records from the child table when the rows in the parent table are updated
     onDelete: 'CASCADE'
 });
 

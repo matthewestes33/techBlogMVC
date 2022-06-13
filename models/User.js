@@ -1,4 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
+// bcrypt to enable password hashing in hooks below
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
