@@ -13,15 +13,17 @@
         "type": "git",
         "url": ""
     },
+    "keywords": [],
     "author": "Matt Estes",
     "license": "MIT",
     "dependencies": {
         "bcrypt": "^5.0.0",
+        "connect-session-sequelize": "^7.0.4",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
-        "express-handlebars": "^4.0.4",
+        "express-handlebars": "^5.2.0",
         "express-session": "^1.17.1",
-        "mysql2": "^2.1.0",
+        "mysql2": "^2.2.5",
         "nodemon": "^2.0.4",
         "sequelize": "^6.3.5"
     }
