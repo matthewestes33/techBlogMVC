@@ -7,13 +7,12 @@ const User = require('./User');
 //associations (Post can have many Comments, each Comment belongs to a Post)
 User.hasMany(Post, {
     foreignKey: 'user_id',
-    //onDelete CASCADE updates the matching records from the child table when the rows in the parent table are updated
-    onDelete: 'CASCADE'
+    onDelete: 'SET NULL'
 });
 
 User.hasMany(Comment, {
     foreignKey: 'user_id',
-    onDelete: 'CASCADE'
+    onDelete: 'SET NULL'
 });
 
 Post.belongsTo(User, {
@@ -26,7 +25,7 @@ Comment.belongsTo(User, {
 
 Post.hasMany(Comment, {
     foreignKey: 'post_id',
-    onDelete: 'CASCADE'
+    onDelete: 'SET NULL'
 });
 
 Comment.belongsTo(Post, {
