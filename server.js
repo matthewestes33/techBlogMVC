@@ -35,6 +35,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+app.set('views', './views');
+
+app.get('/', (req, res) => {
+  res.render('./layouts/main');
+});
 
 app.use(routes);
 

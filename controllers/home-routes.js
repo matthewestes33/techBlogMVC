@@ -18,12 +18,12 @@ router.get('/', async (req, res) => {
                     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
                     include: {
                         model: User,
-                        attributes: ['username']
+                        attributes: ['name']
                     }
                 },
                 {
                     model: User,
-                    attributes: ['username']
+                    attributes: ['name']
                 }
             ]
         })
@@ -52,12 +52,12 @@ router.get('/post/:id', withAuth, async (req, res) => {
                     attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
                     include: {
                         model: User,
-                        attributes: ['username']
+                        attributes: ['name']
                     }
                 },
                 {
                     model: User,
-                    attributes: ['username']
+                    attributes: ['name']
                 }
             ]
         })
