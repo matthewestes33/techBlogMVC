@@ -4,7 +4,6 @@
 
 This application creates a CMS-style blog site that allows a user to publish articles, blog posts, thoughts, and opinions.
 
-
 ## Mock-up
 
 ![screenshot.](./images/screenshot.jpg)
@@ -13,7 +12,7 @@ This application creates a CMS-style blog site that allows a user to publish art
 
 This application requires installation of npm (incl. nodemon, bcrypt, dotenv, express, mysql2, sequelize, express-handlebars), MySQL, and Heroku. 
 
-A walkthrough video can be viewed here: GOOGLE DRIVE LINK
+The application can be viewed here: https://secure-beach-20323.herokuapp.com/
 
 All elements of the project can be examined here: https://github.com/matthewestes33/techBlogMVC  
 
@@ -26,6 +25,8 @@ Hooks | Sequelize: https://sequelize.org/docs/v6/other-topics/hooks/
 Default Values | Sequelize: https://sequelize.org/docs/v6/core-concepts/model-basics/#default-values
 
 Timestamps | Sequelize: https://sequelize.org/docs/v6/core-concepts/model-basics/#timestamps
+
+express-handlebars: https://www.npmjs.com/package/express-handlebars
 
 Additional assistance:
 
