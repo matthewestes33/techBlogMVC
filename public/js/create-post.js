@@ -1,9 +1,11 @@
+//is this a duplicate of add-post.js?
+
 async function newFormHandler(event) {
     event.preventDefault();
   
     const title = document.querySelector('input[name="post-title"]').value;
     const post_text = document.querySelector('input[name="post-text"]').value;
-  
+    console.log("create", title)
     const response = await fetch(`/api/posts`, {
       method: 'POST',
       body: JSON.stringify({
